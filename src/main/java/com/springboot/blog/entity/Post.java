@@ -1,10 +1,7 @@
 package com.springboot.blog.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +10,8 @@ import java.util.Set;
  * @author gelin on 26.11.22
  * @project springboot-blog-rest-api
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -24,7 +22,7 @@ import java.util.Set;
 )
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "title", nullable = false)
