@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,7 +18,6 @@ import org.springframework.security.web.SecurityFilterChain;
  */
 @Configuration
 @EnableMethodSecurity
-
 public class SecurityConfig {
 
     private UserDetailsService userDetailsService;
@@ -44,10 +42,10 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+                                .requestMatchers("/api/auth/**").permitAll()
                                 .anyRequest()
                                 .authenticated()
-                )
-                .httpBasic(Customizer.withDefaults());
+                );
 
         return http.build();
     }
