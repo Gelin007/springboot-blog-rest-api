@@ -2,7 +2,10 @@ package com.springboot.blog.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
@@ -10,7 +13,10 @@ import java.util.Set;
  * @author gelin on 26.11.22
  * @project springboot-blog-rest-api
  */
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PostDto {
     private Long id;
 
@@ -26,4 +32,6 @@ public class PostDto {
     private String content;
 
     private Set<CommentDto> comments;
+
+    private Long categoryId;
 }
