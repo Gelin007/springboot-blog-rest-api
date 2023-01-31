@@ -14,7 +14,7 @@ import java.util.List;
  * @project springboot-blog-rest-api
  */
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/v1")
 public class CommentController {
 
     private CommentService commentService;
