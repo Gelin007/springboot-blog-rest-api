@@ -3,13 +3,16 @@ package com.springboot.blog.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.*;
 
 /**
  * @author gelin on 27.11.22
  * @project springboot-blog-rest-api
  */
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommentDto {
     private Long id;
 

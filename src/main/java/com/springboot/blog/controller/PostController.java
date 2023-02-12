@@ -10,12 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author gelin on 27.11.22
  * @project springboot-blog-rest-api
  */
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
 
     private PostService postService;
@@ -44,7 +46,7 @@ public class PostController {
 
     // get post by id rest api
     @GetMapping("/{id}")
-    public ResponseEntity<PostDto> getPostById(@PathVariable("id") long postId) {
+    public ResponseEntity<PostDto> getPostByIdV1(@PathVariable("id") long postId) {
         return ResponseEntity.ok(postService.getPostById(postId));
     }
 
@@ -62,6 +64,14 @@ public class PostController {
 
         postService.deletePostById(postId);
 
-        return new ResponseEntity<>("Post entity deleted successfully.", HttpStatus.OK);
+        return new ResponseEntity<>("Post entity deleted successfully!", HttpStatus.OK);
+    }
+
+    // Build Get Posts by Category REST API
+    // http://localhost:8080/api/posts/category/3
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<PostDto>> getPostsByCategory(@PathVariable("id") Long categoryId) {
+        List<PostDto> postDtos = postService.getPostsByCategory(categoryId);
+        return ResponseEntity.ok(postDtos);
     }
 }

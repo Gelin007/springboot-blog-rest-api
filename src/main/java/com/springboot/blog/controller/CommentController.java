@@ -14,7 +14,7 @@ import java.util.List;
  * @project springboot-blog-rest-api
  */
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/v1")
 public class CommentController {
 
     private CommentService commentService;
@@ -54,6 +54,6 @@ public class CommentController {
     public ResponseEntity<String> deleteComment(@PathVariable(value = "postId") long postId,
                                                 @PathVariable(value = "id") long commentId) {
         commentService.deleteCommentById(postId, commentId);
-        return new ResponseEntity<>("Comment entity deleted successfully.", HttpStatus.OK);
+        return new ResponseEntity<>("Comment entity deleted successfully!", HttpStatus.OK);
     }
 }
