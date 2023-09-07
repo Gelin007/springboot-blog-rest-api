@@ -2,7 +2,10 @@ package com.springboot.blog.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +36,12 @@ public class Post {
 
     @Column(name = "content", nullable = false)
     private String content;
+
+    @CreationTimestamp
+    private LocalDateTime dateCreated;
+
+    @UpdateTimestamp
+    private LocalDateTime dateUpdated;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @ToString.Exclude

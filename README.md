@@ -1,10 +1,7 @@
 # springboot-blog-rest-api
 Build a Blog App with Spring Boot
 
-# Udemy Course Link 
-https://www.udemy.com/course/building-real-time-rest-apis-with-spring-boot/
-
-# What I've learned in this course ?
+# What I've learned in this project ?
 - How to build great REST API’s for Blog App using Spring Boot, Spring Security, JWT, Spring Data JPA (Hibernate), MySQL database
 - REST basics - Resource, Sub-resource, URI, HTTP methods, HTTP status codes
 - How to build CRUD REST API's
