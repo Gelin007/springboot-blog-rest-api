@@ -34,5 +34,7 @@ public class SpringbootBlogRestApiApplication implements CommandLineRunner {
         Role userRole = new Role();
         userRole.setName("ROLE_USER");
         roleRepository.save(userRole);
+
+
     }
 }

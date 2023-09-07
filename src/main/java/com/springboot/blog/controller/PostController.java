@@ -67,6 +67,13 @@ public class PostController {
         return new ResponseEntity<>("Post entity deleted successfully!", HttpStatus.OK);
     }
 
+    // Build search posts rest api
+    // http://localhost:8080/api/v1/posts/search?query=title
+    @GetMapping("/search")
+    public ResponseEntity<List<PostDto>> searchPosts(@RequestParam("query") String query) {
+        return ResponseEntity.ok(postService.searchProducts(query));
+    }
+
     // Build Get Posts by Category REST API
     // http://localhost:8080/api/posts/category/3
     @GetMapping("/category/{id}")
