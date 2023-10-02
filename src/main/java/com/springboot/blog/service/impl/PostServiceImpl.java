@@ -127,7 +127,7 @@ public class PostServiceImpl implements PostService {
 
 
         return posts.stream()
-                .map(post -> mapToDTO(post))
+                .map(this::mapToDTO)
                 .collect(Collectors.toList());
     }
 
@@ -135,7 +135,7 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> searchProducts(String query) {
         List<Post> posts = postRepository.searchPosts(query);
         return posts.stream()
-                .map(post -> mapToDTO(post))
+                .map(this::mapToDTO)
                 .collect(Collectors.toList());
     }
 
